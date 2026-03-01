@@ -1,0 +1,323 @@
+/* ========================================
+   LEOTHINK - DEEP GRADIENT STYLE
+   Pure gradients, no box shadows, using #ff1dce & #00ffff
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #0a0a14 0%, #1a1025 50%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Main chat container - gradient background, no box shadows */
+.gradient-chat {
+    width: 100%;
+    max-width: 560px;
+    height: 720px;
+    background: linear-gradient(135deg, rgba(255,29,206,0.1) 0%, rgba(0,255,255,0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 32px;
+    border: 1px solid rgba(255,29,206,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Subtle inner glow with gradient */
+.gradient-chat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(255,29,206,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(0,255,255,0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header with glass morphism */
+.chat-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(90deg, rgba(255,29,206,0.15), rgba(0,255,255,0.15));
+    border-bottom: 1px solid rgba(255,29,206,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Logo link & image styles */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.custom-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #ff1dce, #00ffff) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    transition: transform 0.2s ease;
+}
+
+.custom-logo:hover {
+    transform: scale(1.05);
+}
+
+.header-brand h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #ff1dce, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.version {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    background: linear-gradient(135deg, rgba(255,29,206,0.2), rgba(0,255,255,0.2));
+    border-radius: 20px;
+    color: #aaccff;
+    border: 1px solid rgba(255,29,206,0.5);
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.glass-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,29,206,0.2), rgba(0,255,255,0.2));
+    border: 1px solid rgba(255,29,206,0.5);
+    color: white;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+.glass-btn:hover {
+    background: linear-gradient(135deg, rgba(255,29,206,0.4), rgba(0,255,255,0.4));
+    border-color: #00ffff;
+    transform: scale(1.1);
+}
+
+/* Messages area - pure gradient background */
+.chat-messages {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: linear-gradient(145deg, rgba(10,10,20,0.7), rgba(20,10,30,0.7));
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 2;
+}
+
+/* Custom scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255,29,206,0.1);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff1dce, #00ffff);
+    border-radius: 10px;
+}
+
+/* Message bubbles */
+.message {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    animation: fadeSlide 0.3s ease;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.bot {
+    align-self: flex-start;
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+/* Avatar base style - used for both bot (linked image) and user (text) */
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;        /* for image containment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff1dce, #00ffff);
+    flex-shrink: 0;
+    text-decoration: none;   /* if used on link */
+    color: #0a0a14;
+    font-size: 1.2rem;
+}
+
+/* Image inside avatar (for bot) */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* User avatar (text only) */
+.message.user .avatar {
+    background: linear-gradient(135deg, #00ffff, #ff1dce);
+}
+
+.bubble {
+    max-width: calc(100% - 50px);
+    padding: 1rem 1.5rem;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #eef2ff;
+    background: linear-gradient(135deg, rgba(255,29,206,0.15), rgba(0,255,255,0.15));
+    border: 1px solid rgba(255,29,206,0.3);
+    backdrop-filter: blur(5px);
+    word-wrap: break-word;
+}
+
+.message.user .bubble {
+    background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,29,206,0.2));
+    border-color: rgba(0,255,255,0.5);
+}
+
+/* Typing indicator */
+.typing .bubble::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Input area */
+.chat-input-area {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(90deg, rgba(255,29,206,0.1), rgba(0,255,255,0.1));
+    border-top: 1px solid rgba(255,29,206,0.3);
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+.gradient-input {
+    flex: 1;
+    background: rgba(10,10,20,0.5);
+    border: 1px solid rgba(255,29,206,0.5);
+    border-radius: 40px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    outline: none;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+.gradient-input:focus {
+    border-color: #00ffff;
+    background: rgba(20,10,30,0.7);
+}
+
+.gradient-input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+/* Send button with custom image */
+.gradient-send {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    /* background: linear-gradient(135deg, #ff1dce, #00ffff); */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0; /* remove any default padding */
+}
+
+.gradient-send:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.send-icon {
+    width: 170%;        /* relative to button size */
+    height: 170%;
+    object-fit: contain; /* ensures the image fits without distortion */
+    display: block;
+}
+
+/* Minimized state */
+.gradient-chat.minimized .chat-messages,
+.gradient-chat.minimized .chat-input-area {
+    display: none;
+}
+
+.gradient-chat.minimized {
+    height: auto;
+    max-width: 400px;
+}

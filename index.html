@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leothink</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gradient-chat">
+        <div class="chat-header">
+            <div class="header-brand">
+                <!-- Replace src with your own logo, and update href to your link -->
+                <a href="./LOGo.png" class="logo-link" target="_blank">
+                    <img src="./LOGo.png" alt="leothink logo" class="custom-logo">
+                </a>
+                <h1>LeoThink</h1>
+                <span class="version">v3.0</span>
+            </div>
+            <div class="header-actions">
+                <button class="glass-btn minimize-btn" id="minimizeBtn">−</button>
+                <button class="glass-btn close-btn" id="closeBtn">×</button>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be added dynamically by JavaScript -->
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" class="gradient-input" id="userInput" placeholder="Ask me anything..." autofocus>
+            <!-- Custom send button with image – replace src with your own image URL -->
+            <button class="gradient-send" id="sendBtn">
+                <img src="./enter.png" alt="Send" class="send-icon">
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
